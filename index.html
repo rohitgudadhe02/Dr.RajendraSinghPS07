@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Welcome | CampusHire</title>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <div class="welcome-card">
 
-    <!-- TEXT LOGO -->
     <h1 class="logo-text">
       Campus<span>Hire</span>
     </h1>
 
-    
-     <img src="assets/logo.jpeg" class="logo-img" alt="CampusHire Logo"> 
+    <img src="assets/logo.jpeg" class="logo-img" alt="Logo">
 
     <p class="tagline">
       Smart placements. Right opportunities.
     </p>
 
-    <button onclick="goToLogin()">Get Started</button>
+    <!-- STUDENT -->
+    <button onclick="window.location.href='login.html'">
+      Get Started
+    </button>
+
+    <!-- COMPANY -->
+    <div class="company-btn-wrapper">
+      <button class="company-btn" onclick="window.location.href='company/login.html'">
+        Company Login
+      </button>
+    </div>
 
   </div>
-
-  <script>
-    function goToLogin() {
-      window.location.href = "login.html";
-    }
-  </script>
 
 </body>
 </html>

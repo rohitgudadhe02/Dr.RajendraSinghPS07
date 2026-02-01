@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eligibility Criteria</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>Set Eligibility Criteria</h2>
+
+  <div class="field">
+    <input type="number" id="minCgpa" required>
+    <label>Minimum CGPA</label>
+  </div>
+
+  <div class="field">
+    <input type="text" id="branch" required>
+    <label>Eligible Branch</label>
+  </div>
+
+  <label>
+    <input type="checkbox" id="allowBacklog">
+    Allow Backlogs
+  </label>
+
+  <button onclick="saveCriteria()">Show Eligible Students</button>
+</div>
+
+<script src="../js/company.js"></script>
+</body>
+</html>

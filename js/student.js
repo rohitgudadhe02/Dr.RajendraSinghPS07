@@ -51,3 +51,26 @@ window.onload = function () {
 
   });
 };
+function submitSkills() {
+  const skills = [];
+  document.querySelectorAll(".chip.active").forEach(chip =>
+    skills.push(chip.textContent)
+  );
+
+  const student = {
+    name: "Student",
+    cgpa: Number(localStorage.getItem("cgpa")),
+    branch: localStorage.getItem("branch").toLowerCase(),
+    backlog: localStorage.getItem("hasBacklog") === "yes",
+    skills
+  };
+
+  const students = JSON.parse(localStorage.getItem("students")) || [];
+  students.push(student);
+  localStorage.setItem("students", JSON.stringify(students));
+
+  window.location.href = "companies.html";
+}
+localStorage.setItem("cgpa", cgpa);
+localStorage.setItem("branch", branch);
+

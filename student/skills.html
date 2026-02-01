@@ -1,26 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Select Skills</title>
-  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-<div class="card">
-  <h2>Select Your Skills</h2>
+  <div class="card">
 
-  <label><input type="checkbox" value="Java"> Java</label>
-  <label><input type="checkbox" value="Python"> Python</label>
-  <label><input type="checkbox" value="Web"> Web Development</label>
-  <label><input type="checkbox" value="DSA"> DSA</label>
+    <h2>Select Your Skills</h2>
 
-  <button onclick="submitSkills()">Show Companies</button>
-</div>
-<div class="skills">
+    <p style="text-align:center; margin-bottom:16px;">
+      Click to select one or more skills
+    </p>
 
-</div>
+    <!-- SKILLS -->
+    <div class="skills">
 
-<script src="../js/student.js"></script>
+      <div class="chip" onclick="toggleSkill(this)">DSA</div>
+      <div class="chip" onclick="toggleSkill(this)">Java</div>
+      <div class="chip" onclick="toggleSkill(this)">Python</div>
+      <div class="chip" onclick="toggleSkill(this)">Web Development</div>
+      <div class="chip" onclick="toggleSkill(this)">React</div>
+      <div class="chip" onclick="toggleSkill(this)">SQL</div>
+
+    </div>
+
+    <!-- NEXT BUTTON -->
+    <button onclick="submitSkills()">Next</button>
+
+  </div>
+
+  <!-- Student JS -->
+  <script src="../js/student.js"></script>
 </body>
 </html>
-

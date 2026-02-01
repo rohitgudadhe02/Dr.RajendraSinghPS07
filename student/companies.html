@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Eligible Companies</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div class="card">
-  <h2>Eligible Companies</h2>
-  <ul id="companyList"></ul>
-</div>
+  <div class="card">
+    <h2>Companies You Can Apply To</h2>
 
-<script src="../js/student.js"></script>
+    <!-- ELIGIBLE COMPANIES -->
+    <ul id="eligibleCompanyList">
+      <li onclick="openEligibility('Google')">Google</li>
+      <li onclick="openEligibility('Infosys')">Infosys</li>
+      <li onclick="openEligibility('StartupX')">StartupX</li>
+    </ul>
+
+    <button onclick="window.location.href='../login.html'">
+      Logout
+    </button>
+  </div>
+
+  <script src="../js/student.js"></script>
 </body>
 </html>

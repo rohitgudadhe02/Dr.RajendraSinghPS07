@@ -66,26 +66,20 @@ function submitSkills() {
   }
 
   const student = {
-    name: "Student",
     cgpa: Number(localStorage.getItem("cgpa")),
-    branch: localStorage.getItem("branch").toLowerCase(),
-    backlog: localStorage.getItem("hasBacklog") === "yes",
+    branch: localStorage.getItem("branch"),
+    backlog: localStorage.getItem("hasBacklog"),
     backlogType: localStorage.getItem("backlogType") || "none",
     skills: selectedSkills
   };
 
-  const students = JSON.parse(localStorage.getItem("students")) || [];
-  students.push(student);
-  localStorage.setItem("students", JSON.stringify(students));
-
+  localStorage.setItem("student", JSON.stringify(student));
   window.location.href = "companies.html";
 }
 
 /* ======================================================
-   EXPLORE → ELIGIBILITY FEATURE
+   COMPANY DATA (SINGLE SOURCE)
 ====================================================== */
-
-/* ---------- PREDEFINED COMPANY DATA ---------- */
 const COMPANY_DATA = [
   {
     name: "Google",
@@ -111,34 +105,35 @@ const COMPANY_DATA = [
 ];
 
 /* ======================================================
-   PAGE AUTO-DETECTION (EXPLORE + ELIGIBILITY)
+   EXPLORE PAGE LOGIC
 ====================================================== */
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- EXPLORE PAGE ---------- */
-  const companyList = document.getElementById("companyList");
+  const exploreList = document.getElementById("exploreCompanyList");
 
-  if (companyList) {
-    companyList.innerHTML = "";
+  if (exploreList) {
+    exploreList.innerHTML = "";
 
     COMPANY_DATA.forEach(company => {
       const li = document.createElement("li");
       li.textContent = company.name;
       li.style.cursor = "pointer";
 
-      li.addEventListener("click", () => {
+      li.onclick = () => {
         localStorage.setItem(
           "selectedCompany",
           JSON.stringify(company)
         );
         window.location.href = "./eligibility.html";
-      });
+      };
 
-      companyList.appendChild(li);
+      exploreList.appendChild(li);
     });
   }
 
-  /* ---------- ELIGIBILITY PAGE ---------- */
+  /* ======================================================
+     ELIGIBILITY PAGE LOGIC
+  ====================================================== */
   const title = document.getElementById("companyTitle");
   const criteriaList = document.getElementById("criteriaList");
 
@@ -162,18 +157,19 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     criteriaList.innerHTML = "";
-    details.forEach(item => {
+    details.forEach(d => {
       const li = document.createElement("li");
-      li.textContent = item;
+      li.textContent = d;
       criteriaList.appendChild(li);
     });
   }
-
 });
-function viewEligibility(companyName) {
-  const company = COMPANY_DATA.find(
-    c => c.name === companyName
-  );
+
+/* ======================================================
+   ELIGIBLE COMPANIES PAGE CLICK
+====================================================== */
+function openEligibility(companyName) {
+  const company = COMPANY_DATA.find(c => c.name === companyName);
 
   if (!company) {
     alert("Company not found");
@@ -185,7 +181,5 @@ function viewEligibility(companyName) {
     JSON.stringify(company)
   );
 
-  // ✅ GO DIRECTLY TO ELIGIBILITY
   window.location.href = "eligibility.html";
 }
-

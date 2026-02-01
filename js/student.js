@@ -105,10 +105,11 @@ const COMPANY_DATA = [
 ];
 
 /* ======================================================
-   EXPLORE PAGE LOGIC
+   PAGE LOAD LOGIC (EXPLORE + ELIGIBILITY)
 ====================================================== */
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ---------- EXPLORE PAGE ---------- */
   const exploreList = document.getElementById("exploreCompanyList");
 
   if (exploreList) {
@@ -131,12 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
-
-
-  /* ======================================================
-     ELIGIBILITY PAGE LOGIC
-  ====================================================== */
+  /* ---------- ELIGIBILITY PAGE ---------- */
   const title = document.getElementById("companyTitle");
   const criteriaList = document.getElementById("criteriaList");
 
